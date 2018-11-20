@@ -4,12 +4,48 @@
     <title>Giftly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-     <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> %>
-     <%# <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type =>  'image/x-icon' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <!-- <div class="container-fluid"> -->
+      <nav class="navbar">
+        <!-- <a class="navbar-brand"> -->
+        <p class="font-18-large-14-small">
+          <img src="<%= asset_path('giftly-logo-header.png')%>" width="88" height="47" class="d-inline-block align-middle" alt="">
+          <%= @business.name %> Gift Card
+        <!-- </a> -->
+        </p>
+
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Browse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Corporate Gifts</a>
+          </li>
+        </ul>
+      </nav>
+    <!-- </div> -->
+
+    <!-- <div class="container"> -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Gift Cards</li>
+          <li class="breadcrumb-item">San Francisco</li>
+          <li class="breadcrumb-item">Restaurants</li>
+          <li class="breadcrumb-item">American</li>
+          <li class="breadcrumb-item" aria-current="page"><%= @business.name %></li>
+        </ol>
+      </nav>
+    <!-- </div> -->
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
