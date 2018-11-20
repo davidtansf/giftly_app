@@ -9,39 +9,71 @@ class YelpBusinessAPI
   end
 
   def search(params)
+    return invalid_search_response(:params) unless search_params_valid?(params)
 
     location = params[:location]
 
     options = {
-      :term => params[:term],
+      :term => params[:keyword],
       :limit => 1
     }
 
     result = @client.search(location, options).businesses.last
 
-    if result.nil?
-      {
-        match: false,
-        slug: ""
-      }
+    return invalid_search_response(:no_search_results) if result.blank?
+
+    instance = find_or_create_business_record(result)
+
+    if instance.valid?
+      valid_search_response(instance.slug)
     else
-      create_business_record(result)
-      {
-        match: true,
-        slug: ""
-      }
+      invalid_search_response(:validations)
     end
   end
 
-  def create_business_record(business)
-    @business_id = business.id
-    # record = Business.find_by(data_source_id: @business_id)
-    record =  nil
-    if record.nil?
+  def updater
+    # Periodically updates the Yelp entries
+    # Business.where.not(data_source_id: nil).pluck(:data_source_id)
+  end
 
-      business = Business.create_business_client(create_params(business))
+  private
+
+  def valid_search_response(slug)
+    {
+      match: true,
+      slug: slug
+    }
+  end
+
+  def invalid_search_response(error_type)
+    error_message = case error_type
+    when :params
+      "Search params are missing or blank"
+    when :no_search_results
+      "0 search results"
+    when :validations
+      "Could not create database entry. Required fields missing"
     else
-      record
+      "Some other error"
+    end
+    {
+      match: false,
+      error: error_message
+    }
+  end
+
+  def search_params_valid?(params)
+    !params[:location].blank? && !params[:keyword].blank?
+  end
+
+  def find_or_create_business_record(business)
+    @business_id = business.id
+    instance = Business.find_by(data_source_id: @business_id)
+
+    if instance.nil?
+      Business.create_business_client(create_params(business))
+    else
+      instance
     end
   end
 
@@ -77,7 +109,6 @@ class YelpBusinessAPI
       map_url: "placeholder",
       cross_street: find_cross_streets
     }
-
   end
 
   def format_address(location)
@@ -110,7 +141,6 @@ class YelpBusinessAPI
         review_url: format_review_url(review.id, review.url)
       }
     end
-
     reviews
   end
 
@@ -127,10 +157,5 @@ class YelpBusinessAPI
 
   def price_formatter(price)
     price.count("$")
-  end
-
-  def updater
-    # Periodically updates the Yelp entries
-    # Business.where.not(data_source_id: nil).pluck(:data_source_id)
   end
 end

@@ -18,15 +18,14 @@ class Business < ApplicationRecord
       if instance.save
         instance.create_address(params[:address])
 
-
         params[:reviews].each do |review|
           instance.reviews.create(review)
         end
 
         instance.create_gift_card(active: DEFAULT_GIFT_CARD_STATUS)
-      else
       end
     end
+    instance
   end
 
   private
