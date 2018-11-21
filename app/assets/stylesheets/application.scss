@@ -2,18 +2,38 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helveti
 $font-family-base: $font-family-sans-serif !default;
 $breadcrumb-divider: quote("›");
 $breadcrumb-divider-color: #A5ACAC;
+$bg-color: #E8EEF1;
+$card-bg-color: #FEFFFF;
+$giftly-orange: #F2B031;
+$paragraph-text-grey: #505960;
+$paragpraph-title-juniper: #6E8F94;
 @import "bootstrap";
 @import "gift_cards";
 
 body {
+  background-color: $bg-color;
+  padding-bottom: 10px;
+  color: $paragraph-text-grey;
+  font-weight: 200;
 
+  h1 {
+    color: $paragpraph-title-juniper;
+    font-weight: 200;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  h3 {
+    color: $paragpraph-title-juniper;
+    font-weight: 100;
+  }
 }
 
 .navbar {
 
   background-color: #F2EFEA;
   font-weight: 200;
-  font-size: 12px;
+  font-size: 13px;
   color: #988575;
   p {
     // padding-bottom: -50px;
@@ -27,15 +47,26 @@ body {
   a {
     color: #988575;
     font-weight: 200;
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
 .breadcrumb {
-  background-color: #E8EEF1;
+  background-color: $bg-color;
   color: #A5ACAC;
   letter-spacing: 1px;
   font-weight: 200;
   // color: #ff0000;
   font-size: 12px;
+}
+
+div {
+  background-color: $card-bg-color;
+}
+
+.special {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
 }

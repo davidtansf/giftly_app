@@ -1,6 +1,19 @@
-<h1>The Info Page</h1>
-<p>
-  <strong>
-    <%= @business.name %>
-  </strong>
-</p>
+<div class="special">
+  <%= render "buy_card" %>
+</div>
+
+<div class="special">
+  <%= render "custom_cards" %>
+</div>
+
+<div class="special">
+  <h3>About <%= @business.name %></h3>
+</div>
+
+<div class="special">
+  <%= render "alternatives" %>
+</div>
+
+<div class="special">
+  <%= render "why_giftly" %>
+</div>

@@ -2,7 +2,7 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 biz_params = {
-  name: "Zuni Cafe",
+  name: "Zuni Café",
   data_source: "yelp",
   data_source_id: "oqsu3pKpgRMGHj9QItsx0A",
   data_source_url: "https://www.yelp.com/biz/zuni-café-san-francisco-3",
