@@ -10,6 +10,7 @@ $paragpraph-title-juniper: #6E8F94;
 $hyperlink-color: #3DCBE7;
 $hyperlink-hover-color: #2794B6;
 $body-nav-margin: 75px;
+$buy-btn-color: #23BFDF;
 @import "bootstrap";
 @import "gift_cards";
 
@@ -102,9 +103,20 @@ div {
   padding-right: 60px;
 }
 
-
-.horizontal-line {
-  width: 500px;
-  height: 1px;
-  background-color: silver;
+.buy-button {
+  background-color: $buy-btn-color;
+  border-color: #1A9AB5;
+  box-shadow: 0 2px 0 #1a9ab5!important;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  // padding-left: 200px;
+  // padding-right: 200px;
+  font-size: 16px;
+  // margin-left: 30%;
+  // margin-right: 30%;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  display: block;
+  font-family: Arial;
 }

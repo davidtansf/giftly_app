@@ -1,8 +1,19 @@
 <h1>Buy a Gift Card to <%= @business.name %></h1>
 
 <p>Send a personalized cash gift card that is suggested
-  for use at <%= @business.name %>. Any amount up to
+  for use at <span class="biz-name"><%= @business.name %></span>. Any amount up to
   $1,000. Deliver by email, mail, or print at home.</p>
 
 <p>You suggest where to go and what to get— the recipient
   always get what they want.</p>
+
+
+<div class="text-center">
+  <div class="container">
+    <div class="container">
+      <button type="button" class="btn buy-button btn-block btn-primary">Customize & Buy ››</button>
+    </div>
+  </div>
+  <img src="<%= asset_path('giftly-guarantee.png')%>" class="img-fluid" alt="Responsive image">
+  <a href='#'><span>100% satisfaction guaranteed</span></a>
+</div>
