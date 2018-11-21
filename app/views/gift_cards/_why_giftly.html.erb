@@ -1,4 +1,4 @@
-<h3>Why buy a gift card using [LOGO]?</h3>
+<h4>Why buy a gift card using<img src="<%= asset_path('giftly-small-white.png')%>" class="img-fluid" alt="Responsive image">?</h4>
 
 <p>Giftly makes it easy to send a gift card that's
   personal, but also flexible and convenient. It's
@@ -15,8 +15,9 @@
 
 <p>Your recipient redeems online and chooses how to
   receive the money. They can spend their funds at
-  <%= @business.name %>, or elsewhere if they prefer. There is no
-  physical gift certificate to carry around or lose.</p>
+  <span class="biz-name"><%= @business.name %></span>, or
+  elsewhere if they prefer. There is no physical gift
+  certificate to carry around or lose.</p>
 
 <p>Gift cards sent through Giftly never expire and there
   are no fees, so recipients can redeem at any time.</p>

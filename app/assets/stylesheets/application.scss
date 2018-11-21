@@ -7,14 +7,33 @@ $card-bg-color: #FEFFFF;
 $giftly-orange: #F2B031;
 $paragraph-text-grey: #505960;
 $paragpraph-title-juniper: #6E8F94;
+$hyperlink-color: #3DCBE7;
+$hyperlink-hover-color: #2794B6;
+$body-nav-margin: 75px;
 @import "bootstrap";
 @import "gift_cards";
 
 body {
   background-color: $bg-color;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-left: $body-nav-margin;
+  margin-right: $body-nav-margin;
   color: $paragraph-text-grey;
   font-weight: 200;
+  font-size: 15px;
+
+  a {
+    color: $hyperlink-color;
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  a:hover{
+    color: $hyperlink-hover-color;
+    text-decoration: none !important;
+  }
 
   h1 {
     color: $paragpraph-title-juniper;
@@ -23,13 +42,24 @@ body {
     text-align: center;
   }
 
-  h3 {
+  h4 {
     color: $paragpraph-title-juniper;
-    font-weight: 100;
+    font-weight: 200;
+    letter-spacing: 1px;
+  }
+
+  .biz-name{
+    color: $giftly-orange;
   }
 }
 
 .navbar {
+
+  margin-left: -$body-nav-margin;
+  margin-right: -$body-nav-margin;
+
+  padding-left:75px;
+  padding-right:75px;
 
   background-color: #F2EFEA;
   font-weight: 200;
@@ -56,8 +86,9 @@ body {
   color: #A5ACAC;
   letter-spacing: 1px;
   font-weight: 200;
-  // color: #ff0000;
   font-size: 12px;
+  padding-left: -5px;
+  margin-left: -5px;
 }
 
 div {
@@ -69,4 +100,11 @@ div {
   padding-bottom: 20px;
   padding-left: 60px;
   padding-right: 60px;
+}
+
+
+.horizontal-line {
+  width: 500px;
+  height: 1px;
+  background-color: silver;
 }
