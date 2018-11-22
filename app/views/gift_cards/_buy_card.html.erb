@@ -1,4 +1,4 @@
-<h1>Buy a Gift Card to <%= @business.name %></h1>
+<h1 class="mb-3">Buy a Gift Card to <%= @business.name %></h1>
 
 <p>Send a personalized cash gift card that is suggested
   for use at <span class="biz-name"><%= @business.name %></span>. Any amount up to
@@ -8,12 +8,24 @@
   always get what they want.</p>
 
 
-<div class="text-center">
+<div class="text-center border-bottom custom-buy">
   <div class="container">
     <div class="container">
-      <button type="button" class="btn buy-button btn-block btn-primary">Customize & Buy ››</button>
+      <button type="button" class="btn px-10 btn-lg btn-primary buy-button">Customize & Buy ››</button>
     </div>
   </div>
   <img src="<%= asset_path('giftly-guarantee.png')%>" class="img-fluid" alt="Responsive image">
   <a href='#'><span>100% satisfaction guaranteed</span></a>
+</div>
+
+<div class="row text-center three-links">
+  <div class="col-sm border-right">
+    <a href='#'><span>How it works</span></a>
+  </div>
+  <div class="col-sm border-right">
+    <a href='#'><span>Sample gift</span></a>
+  </div>
+  <div class="col-sm">
+    <a href='#'><span>Why Giftly</span></a>
+  </div>
 </div>

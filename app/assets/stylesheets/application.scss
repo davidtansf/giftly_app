@@ -7,10 +7,33 @@ $card-bg-color: #FEFFFF;
 $giftly-orange: #F2B031;
 $paragraph-text-grey: #505960;
 $paragpraph-title-juniper: #6E8F94;
-$hyperlink-color: #3DCBE7;
-$hyperlink-hover-color: #2794B6;
+$hyperlink-blue: #3DCBE7;
+$hyperlink-hover-blue: #2794B6;
 $body-nav-margin: 75px;
 $buy-btn-color: #23BFDF;
+$example-gift-btn-gray: #E9EAEB;
+$hyperlink-hover-gray: #D7DBDD;
+$bottom-border-padding: 18px;
+$spacer: 1rem !default;
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),    //4px
+    2: ($spacer * .5),     //8px
+    3: $spacer,            //16px
+    4: ($spacer * 1.5),    //24px
+    5: ($spacer * 3),      //48px
+    6: ($spacer * 4),      //64px
+    7: ($spacer * 5),      //80px
+    8: ($spacer * 6),     //96px
+    9: ($spacer * 7),     //112px
+    10: ($spacer * 8)     //128px
+  ),
+  $spacers);
+
 @import "bootstrap";
 @import "gift_cards";
 
@@ -24,16 +47,21 @@ body {
   font-size: 15px;
 
   a {
-    color: $hyperlink-color;
+    color: $hyperlink-blue;
 
     span {
       font-size: 20px;
     }
   }
 
+  a.hyperlink-line{
+    text-decoration: underline !important;
+  }
+
   a:hover{
-    color: $hyperlink-hover-color;
+    color: $hyperlink-hover-blue;
     text-decoration: none !important;
+
   }
 
   h1 {
@@ -49,11 +77,18 @@ body {
     letter-spacing: 1px;
   }
 
+
+
   .biz-name{
     color: $giftly-orange;
   }
 }
 
+.alternatives {
+  p {
+    font-weight: 400;
+  }
+}
 .navbar {
 
   margin-left: -$body-nav-margin;
@@ -103,20 +138,57 @@ div {
   padding-right: 60px;
 }
 
+.greeting-cards {
+  margin-top: 15px;
+  // margin-bottom: 15px;
+  padding-bottom: $bottom-border-padding;
+}
+
+.custom-buy {
+  padding-bottom: $bottom-border-padding;
+}
+
+.three-links {
+  padding-top: 15px;
+}
 .buy-button {
   background-color: $buy-btn-color;
-  border-color: #1A9AB5;
+  margin: 0 auto;
+  border: none;
   box-shadow: 0 2px 0 #1a9ab5!important;
   padding-bottom: 12px;
   padding-top: 12px;
-  // padding-left: 200px;
-  // padding-right: 200px;
   font-size: 16px;
-  // margin-left: 30%;
-  // margin-right: 30%;
+  font-weight: 100;
   margin-bottom: 20px;
   letter-spacing: 1px;
   text-align: center;
   display: block;
   font-family: Arial;
+}
+
+.buy-button:hover{
+  background-color: $hyperlink-hover-blue;
+}
+
+.example-button {
+  background-color: $example-gift-btn-gray;
+  margin: 0 auto;
+  color: $hyperlink-blue;
+  border: none;
+  box-shadow: 0 2px 0 #CFD0D1!important;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  font-size: 16px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  display: block;
+  font-family: Arial;
+}
+
+.example-button:hover{
+  background-color: $hyperlink-hover-gray;
+  color: $hyperlink-blue;
 }

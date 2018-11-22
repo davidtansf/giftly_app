@@ -1,5 +1,30 @@
-<h4>If not <%= @business.name %>, they might also enjoy</h4>
+<h4 class="mb-4">If not <%= @business.name %>, they might also enjoy</h4>
 
-<h6>Browse places similar to Zuni Cafe</h6>
+<p>Browse places similar to Zuni Cafe</p>
+<div class="row mb-4">
+  <div class="col-sm-7">
+    <a href='#'><%= @business.categories %> in <%= @business.address.address %> </a>
+  </div>
+  <div class="col-sm-5">
+    <a href='#'><%= @business.categories %> in <%= @business.address.neighborhood %> </a>
+  </div>
+</div>
 
-<h6>Or perhaps,</h6>
+<p>Or perhaps,</p>
+
+<div class="row">
+  <div class="col-sm">
+    <img src="<%= asset_path('dinner-at-any-restaurant.png')%>" class="img-fluid" alt="Responsive image">
+    <p>Dinner at Any restaurant</p>
+  </div>
+  <div class="col-sm">
+    <img src="<%= asset_path('anything-at-any-place.png')%>" class="img-fluid" alt="Responsive image">
+    <p>Anything at Any place</p>
+  </div>
+  <div class="col-sm">
+    <img src="<%= asset_path('movies-at-any-theater.png')%>" class="img-fluid" alt="Responsive image">
+    <p>Movies at Any theater</p>
+  </div>
+</div>
+
+<a href='#' class="hyperlink-line">Browse more gift ideas</a>
