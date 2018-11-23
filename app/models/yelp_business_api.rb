@@ -1,7 +1,8 @@
 class YelpBusinessAPI
-  require 'yelp/fusion'
+  attr_accessor :client
 
   DATA_SOURCE = 'yelp'
+  RESTAURANT = 'Restaurants'
 
   def initialize
     @client = Yelp::Fusion::Client.new(ENV["YELP_API_KEY"])
@@ -29,7 +30,6 @@ class YelpBusinessAPI
     else
       invalid_search_response(:validations)
     end
-    # return save
   end
 
   def updater
@@ -96,6 +96,7 @@ class YelpBusinessAPI
       rating: business.rating,
       total_reviews: business.review_count,
       categories: aggregate_categories(business.categories),
+      parent_category: RESTAURANT,
       price: price_formatter(business.price),
       image_url: business.image_url
     }
@@ -103,7 +104,8 @@ class YelpBusinessAPI
 
   def create_address_params(location, coordinates)
     {
-      address: format_address(location),
+      display_address: format_address(location),
+      city: location.city,
       neighborhood: find_neighborhood(coordinates),
       latitude: coordinates.latitude,
       longitude: coordinates.longitude,
@@ -153,7 +155,7 @@ class YelpBusinessAPI
   end
 
   def aggregate_categories(categories)
-    categories.map{|c| c.title}.join(", ")
+    categories.map{|c| c.title}
   end
 
   def price_formatter(price)

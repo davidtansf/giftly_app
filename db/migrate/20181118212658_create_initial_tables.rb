@@ -10,13 +10,15 @@ class CreateInitialTables < ActiveRecord::Migration[5.2]
       t.float :rating
       t.integer :total_reviews
       t.string :categories
+      t.string :parent_category
       t.integer :price
       t.string :image_url
       t.timestamps
     end
 
     create_table :addresses do |t|
-      t.string :address
+      t.string :display_address
+      t.string :city
       t.string :neighborhood
       t.float :latitude
       t.float :longitude

@@ -1,14 +1,25 @@
 <h4 class="mb-4">If not <%= @business.name %>, they might also enjoy</h4>
 
 <p>Browse places similar to Zuni Cafe</p>
-<div class="row mb-4">
+<div class="row mb-2">
   <div class="col-sm-7">
-    <a href='#'><%= @business.categories %> in <%= @business.address.address %> </a>
+    <a href='#'><%= @business.categories[0] %> <%= @business.parent_category.downcase %> in <%= @business.address.city %> </a>
   </div>
   <div class="col-sm-5">
-    <a href='#'><%= @business.categories %> in <%= @business.address.neighborhood %> </a>
+    <a href='#'><%= @business.parent_category %> in <%= @business.address.neighborhood %> </a>
   </div>
 </div>
+
+<% if @business.categories[1] %>
+  <div class="row mb-4">
+    <div class="col-sm-7">
+      <a href='#'><%= @business.categories[1] %> <%= @business.parent_category.downcase %> in <%= @business.address.city %> </a>
+    </div>
+    <div class="col-sm-5">
+      <a href='#'><%= @business.parent_category %> in <%= @business.address.city %> </a>
+    </div>
+  </div>
+<% end %>
 
 <p>Or perhaps,</p>
 

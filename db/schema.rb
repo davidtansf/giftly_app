@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 2018_11_18_212658) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string "address"
+    t.string "display_address"
+    t.string "city"
     t.string "neighborhood"
     t.float "latitude"
     t.float "longitude"
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_212658) do
     t.float "rating"
     t.integer "total_reviews"
     t.string "categories"
+    t.string "parent_category"
     t.integer "price"
     t.string "image_url"
     t.datetime "created_at", null: false

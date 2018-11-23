@@ -21,7 +21,7 @@
         based on <%= @business.total_reviews %> reviews on
         <a href="<%= @business.data_source_url %>"><img src="<%= asset_path('yelp_fullcolor_xs.png')%>" class="img-fluid" alt="Responsive image"></a>
       </p>
-      <p><%= @business.address.address %></p>
+      <p><%= @business.address.display_address %></p>
       <p><%= @business.phone %></p>
     </div>
   </div>
@@ -30,7 +30,7 @@
     <div class="col">
       <strong>Categories</strong>
       <div>
-        <a href='#'><%= @business.categories %></a>
+        <a href='#'><%= @business.categories.join(", ") %></a>
       </div>
     </div>
     <div class="col">
