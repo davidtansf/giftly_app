@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <p>
+    <img src="<%= asset_path('giftly-logo-header.png')%>" width="88" height="47" class="d-inline-block align-middle" alt="">
+    <% if @business %>
+      <%= @business.name %> Gift Card
+    <% end %>
+  </p>
+
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Browse</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Corporate Gifts</a>
+    </li>
+  </ul>
+</nav>

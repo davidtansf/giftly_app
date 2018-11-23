@@ -8,7 +8,7 @@ biz_params = {
   data_source_url: "https://www.yelp.com/biz/zuni-café-san-francisco-3",
   slug: "zuni-cafe",
   phone: "(415) 552-2522",
-  rating: 3,
+  rating: 4.5,
   total_reviews: 2467,
   categories: "Italian, French",
   price: 3,
