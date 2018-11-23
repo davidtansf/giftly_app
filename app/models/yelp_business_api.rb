@@ -69,24 +69,12 @@ class YelpBusinessAPI
 
   def find_or_create_business_record(business)
     @business_id = business.id
-    instance = Business.find_by(data_source_id: @business_id)
 
-    if instance.nil?
-      Business.create_business_client(create_params(business))
-    else
-      instance
-    end
+    Business.find_by(data_source_id: @business_id) ||
+        Business.create(build_params(business))
   end
 
-  def create_params(business)
-    {
-      :business => create_business_params(business),
-      :address => create_address_params(business.location, business.coordinates),
-      :reviews => create_reviews_params
-    }
-  end
-
-  def create_business_params(business)
+  def build_params(business)
     {
       name: business.name,
       data_source: DATA_SOURCE,
@@ -98,13 +86,15 @@ class YelpBusinessAPI
       categories: aggregate_categories(business.categories),
       parent_category: RESTAURANT,
       price: price_formatter(business.price),
-      image_url: business.image_url
+      image_url: business.image_url,
+      address_attributes: build_address_params(business.location, business.coordinates),
+      reviews_attributes: build_reviews_params
     }
   end
 
-  def create_address_params(location, coordinates)
+  def build_address_params(location, coordinates)
     {
-      display_address: format_address(location),
+      display_address: format_display_address(location),
       city: location.city,
       neighborhood: find_neighborhood(coordinates),
       latitude: coordinates.latitude,
@@ -114,7 +104,20 @@ class YelpBusinessAPI
     }
   end
 
-  def format_address(location)
+  def build_reviews_params
+    results = @client.review(@business_id).reviews
+
+    results.map do |review|
+      {
+        rating: review.rating,
+        text: review.text,
+        review_source_id: review.id,
+        review_source_url: review.url
+      }
+    end
+  end
+
+  def format_display_address(location)
     line1 = "#{location.address1} #{location.address2} #{location.address3}".strip
     line2 = "#{location.city}, #{location.state}".strip
     "#{line1}, #{line2}"
@@ -130,28 +133,6 @@ class YelpBusinessAPI
     # The search endpoint doesn't return cross street info
     # We need to hit another endpoint for that info
     @client.business(@business_id).business.location.cross_streets
-  end
-
-  def create_reviews_params
-    reviews = []
-    results = @client.review(@business_id).reviews
-
-    results.each do |review|
-      reviews <<
-      {
-        rating: review.rating,
-        review: review.text,
-        review_url: format_review_url(review.id, review.url)
-      }
-    end
-    reviews
-  end
-
-  def format_review_url(id, url)
-    parsed = URI::parse(url)
-    parsed.fragment = parsed.query = nil
-    parsed = CGI::unescape(parsed.to_s)
-    "#{parsed}?hrid=#{id}"
   end
 
   def aggregate_categories(categories)

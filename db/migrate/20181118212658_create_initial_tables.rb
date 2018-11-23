@@ -31,8 +31,9 @@ class CreateInitialTables < ActiveRecord::Migration[5.2]
     create_table :reviews do |t|
       t.integer :business_id
       t.integer :rating
-      t.string :review
-      t.string :review_url
+      t.string :text
+      t.string :review_source_id
+      t.string :review_source_url
       t.timestamps
     end
 

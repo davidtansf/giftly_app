@@ -19,7 +19,7 @@
       <p>
         <img src="<%= asset_path('yelp_stars/' + @business.rating.to_s.gsub(".","_") + '.png')%>" class="img-fluid" alt="Responsive image">
         based on <%= @business.total_reviews %> reviews on
-        <a href="<%= @business.data_source_url %>"><img src="<%= asset_path('yelp_fullcolor_xs.png')%>" class="img-fluid" alt="Responsive image"></a>
+        <a target="_blank" href="<%= @business.data_source_url %>"><img src="<%= asset_path('yelp_fullcolor_xs.png')%>" class="img-fluid" alt="Responsive image"></a>
       </p>
       <p><%= @business.address.display_address %></p>
       <p><%= @business.phone %></p>
@@ -75,8 +75,8 @@
         <div class="col-sm-2 text-center">
           <img src="<%= asset_path('yelp_stars/'+review.rating.to_f.to_s.gsub(".","_")+'.png')%>" class="img-fluid mb-4" alt="Responsive image">
         </div>
-        <div class="col-sm-10">"<%= review.review%>"
-          <a href='<%= review.review_url%>'>read more</a>
+        <div class="col-sm-10">"<%= review.text%>"
+          <a target="_blank" href='<%= review.review_source_url%>'>read more</a>
         </div>
       </div>
     <% end %>

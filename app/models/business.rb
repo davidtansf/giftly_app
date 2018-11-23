@@ -6,6 +6,7 @@ class Business < ApplicationRecord
   before_create do
     set_slug
     strip_url if data_source_url.present?
+    set_gift_card
   end
 
   validates :name, presence: true
@@ -14,24 +15,9 @@ class Business < ApplicationRecord
 
   serialize :categories, Array
 
+  accepts_nested_attributes_for :reviews, :gift_card, :address
+
   DEFAULT_GIFT_CARD_STATUS = true
-
-  def self.create_business_client(params)
-    instance = new(params[:business])
-
-    ActiveRecord::Base.transaction do
-      if instance.save
-        instance.create_address(params[:address])
-
-        params[:reviews].each do |review|
-          instance.reviews.create(review)
-        end
-
-        instance.create_gift_card(active: DEFAULT_GIFT_CARD_STATUS)
-      end
-    end
-    instance
-  end
 
   private
 
@@ -43,5 +29,9 @@ class Business < ApplicationRecord
     parsed = URI::parse(self.data_source_url)
     parsed.fragment = parsed.query = nil
     self.data_source_url = parsed.to_s
+  end
+
+  def set_gift_card
+    self.build_gift_card(active: DEFAULT_GIFT_CARD_STATUS)
   end
 end
