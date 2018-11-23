@@ -7,7 +7,84 @@
 </div>
 
 <div class="special">
-  <h4>About <%= @business.name %></h4>
+
+  <h4 class="mb-5">About <%= @business.name %></h4>
+
+  <div class="row mb-4">
+    <div class="col-sm-3">
+      <img src="<%= @business.image_url %>" class="img-fluid rounded float-left">
+    </div>
+    <div class="col-sm-9">
+      <h5><%= @business.name %></h5>
+      <p>
+        <img src="<%= asset_path('yelp_stars/' + @business.rating.to_s.gsub(".","_") + '.png')%>" class="img-fluid" alt="Responsive image">
+        based on <%= @business.total_reviews %> reviews on
+        <a href="<%= @business.data_source_url %>"><img src="<%= asset_path('yelp_fullcolor_xs.png')%>" class="img-fluid" alt="Responsive image"></a>
+      </p>
+      <p><%= @business.address.address %></p>
+      <p><%= @business.phone %></p>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col">
+      <strong>Categories</strong>
+      <div>
+        <a href='#'><%= @business.categories %></a>
+      </div>
+    </div>
+    <div class="col">
+      <strong>Price range</strong>
+      <div>
+        <%= @business.price %>
+      </div>
+    </div>
+    <div class="col">
+      <strong>Neighborhood</strong>
+      <div>
+        <a href='#'><%= @business.address.neighborhood %></a>
+      </div>
+    </div>
+    <div class="col">
+      <strong>Cross Streets</strong>
+      <div>
+        <%= @business.address.cross_street %>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <img src="<%= asset_path('map-display2.png')%>" class="img-fluid mb-4" alt="Responsive image">
+  </div>
+
+  <div class="border-bottom mb-4">
+    <div class="row mb-4 align-items-center">
+      <div class="col-sm-2">
+        <img src="<%= asset_path('yelp_fullcolor.png')%>" class="img-fluid" alt="Responsive image">
+      </div>
+      <div class="col-sm-10">
+        reviews for <%= @business.name %>
+      </div>
+    </div>
+<!--
+    <img src="<%= asset_path('yelp_fullcolor.png')%>" class="" alt="Responsive image">
+    reviews for <%= @business.name %>
+-->
+    <% @business.reviews.each do |review| %>
+      <div class="row pb-4">
+        <div class="col-sm-2 text-center">
+          <img src="<%= asset_path('yelp_stars/'+review.rating.to_f.to_s.gsub(".","_")+'.png')%>" class="img-fluid mb-4" alt="Responsive image">
+        </div>
+        <div class="col-sm-10">"<%= review.review%>"
+          <a href='<%= review.review_url%>'>read more</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="text-center">Is this your business? Take a moment to
+    <a href='#'>claim the page</a> and customize it for free.
+  </p>
 </div>
 
 <div class="special alternatives">
