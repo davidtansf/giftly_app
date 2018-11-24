@@ -1,3 +1,27 @@
-// Place all the styles related to the GiftCards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#price-display {
+  color: $hyperlink-blue;
+}
+
+#price-total {
+  color: $gray-400;
+}
+
+#buy-button {
+  background-color: $buy-btn-color;
+  box-shadow: 0 2px 0 #1a9ab5 !important;
+}
+
+#buy-button:hover {
+  background-color: $hyperlink-hover-blue;
+}
+
+#example-button {
+  color: $hyperlink-blue;
+  background-color: $example-gift-btn-gray;
+  box-shadow: 0 2px 0 #CFD0D1 !important;
+}
+
+#example-button:hover{
+  background-color: $hyperlink-hover-gray;
+  color: $hyperlink-blue;
+}

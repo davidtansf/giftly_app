@@ -5,15 +5,9 @@
 body {
   background-color: $bg-color;
   margin-bottom: 10px;
-  margin-left: -50px;
-  margin-right: -50px;
   color: $paragraph-text-grey;
   font-weight: 200;
   font-size: 16px;
-
-  .navbar-container {
-    background-color: #F2EFEA;
-  }
 
   a {
     color: $hyperlink-blue;
@@ -57,9 +51,6 @@ body {
     font-weight: 200;
     letter-spacing: 1px;
   }
-
-  div {
-  }
 }
 
 .biz-name{
@@ -71,8 +62,6 @@ body {
 }
 
 .navbar {
-
-  background-color: #F2EFEA;
   font-weight: 200;
   font-size: 13px;
   color: #988575;
@@ -127,11 +116,9 @@ body {
   padding-top: 15px;
 }
 
-.buy-button {
-  background-color: $buy-btn-color;
+.custom-button {
   margin: 0 auto;
   border: none;
-  box-shadow: 0 2px 0 #1a9ab5!important;
   padding-bottom: 12px;
   padding-top: 12px;
   font-size: 16px;
@@ -141,42 +128,8 @@ body {
   text-align: center;
   display: block;
   font-family: Arial;
-}
-
-.buy-button:hover{
-  background-color: $hyperlink-hover-blue;
-}
-
-.example-button {
-  background-color: $example-gift-btn-gray;
-  margin: 0 auto;
-  color: $hyperlink-blue;
-  border: none;
-  box-shadow: 0 2px 0 #CFD0D1 !important;
-  padding-bottom: 12px;
-  padding-top: 12px;
-  font-size: 16px;
-  font-weight: 100;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-  text-align: center;
-  display: block;
-  font-family: Arial;
-}
-
-.example-button:hover{
-  background-color: $hyperlink-hover-gray;
-  color: $hyperlink-blue;
 }
 
 .border-top-custom {
   border-top: 6px solid $paragpraph-title-juniper !important;
-}
-
-#price-display {
-  color: $hyperlink-blue;
-}
-
-#price-total {
-  color: $gray-400;
 }
