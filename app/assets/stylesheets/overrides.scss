@@ -13,7 +13,18 @@ $buy-btn-color: #23BFDF;
 $example-gift-btn-gray: #E9EAEB;
 $hyperlink-hover-gray: #D7DBDD;
 $bottom-border-padding: 18px;
-$spacer: 1rem !default;
+
+$container-max-widths: () !default;
+$container-max-widths: map-merge(
+  (
+    sm: 740px,
+    md: 950px,
+    lg: 960px,
+    xl: 1140px
+  ),
+  $container-max-widths
+);
+
 $spacer: 1rem !default;
 $spacers: () !default;
 $spacers: map-merge(
