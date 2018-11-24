@@ -1,0 +1,33 @@
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-base: $font-family-sans-serif !default;
+$breadcrumb-divider: quote("›");
+$breadcrumb-divider-color: #A5ACAC;
+$bg-color: #E8EEF1;
+$card-bg-color: #FEFFFF;
+$giftly-orange: #F2B031;
+$paragraph-text-grey: #505960;
+$paragpraph-title-juniper: #6E8F94;
+$hyperlink-blue: #3DCBE7;
+$hyperlink-hover-blue: #2794B6;
+$buy-btn-color: #23BFDF;
+$example-gift-btn-gray: #E9EAEB;
+$hyperlink-hover-gray: #D7DBDD;
+$bottom-border-padding: 18px;
+$spacer: 1rem !default;
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),    //4px
+    2: ($spacer * .5),     //8px
+    3: $spacer,            //16px
+    4: ($spacer * 1.5),    //24px
+    5: ($spacer * 3),      //48px
+    6: ($spacer * 4),      //64px
+    7: ($spacer * 5),      //80px
+    8: ($spacer * 6),     //96px
+    9: ($spacer * 7),     //112px
+    10: ($spacer * 8)     //128px
+  ),
+  $spacers);

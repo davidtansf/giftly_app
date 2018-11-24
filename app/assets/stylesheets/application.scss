@@ -1,50 +1,19 @@
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-base: $font-family-sans-serif !default;
-$breadcrumb-divider: quote("›");
-$breadcrumb-divider-color: #A5ACAC;
-$bg-color: #E8EEF1;
-$card-bg-color: #FEFFFF;
-$giftly-orange: #F2B031;
-$paragraph-text-grey: #505960;
-$paragpraph-title-juniper: #6E8F94;
-$hyperlink-blue: #3DCBE7;
-$hyperlink-hover-blue: #2794B6;
-$body-nav-margin: 75px;
-$buy-btn-color: #23BFDF;
-$example-gift-btn-gray: #E9EAEB;
-$hyperlink-hover-gray: #D7DBDD;
-$bottom-border-padding: 18px;
-$spacer: 1rem !default;
-$spacer: 1rem !default;
-$spacers: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * .25),    //4px
-    2: ($spacer * .5),     //8px
-    3: $spacer,            //16px
-    4: ($spacer * 1.5),    //24px
-    5: ($spacer * 3),      //48px
-    6: ($spacer * 4),      //64px
-    7: ($spacer * 5),      //80px
-    8: ($spacer * 6),     //96px
-    9: ($spacer * 7),     //112px
-    10: ($spacer * 8)     //128px
-  ),
-  $spacers);
-
+@import "overrides";
 @import "bootstrap";
 @import "gift_cards";
 
 body {
   background-color: $bg-color;
   margin-bottom: 10px;
-  margin-left: $body-nav-margin;
-  margin-right: $body-nav-margin;
+  margin-left: -50px;
+  margin-right: -50px;
   color: $paragraph-text-grey;
   font-weight: 200;
-  font-size: 16px; // or 15px;
+  font-size: 16px;
+
+  .navbar-container {
+    background-color: #F2EFEA;
+  }
 
   a {
     color: $hyperlink-blue;
@@ -89,30 +58,31 @@ body {
     letter-spacing: 1px;
   }
 
-  .biz-name{
-    color: $giftly-orange;
+  div {
   }
 }
 
-.alternatives {
-  p {
-    font-weight: 400;
-  }
+.biz-name{
+  color: $giftly-orange;
 }
+
+.navbar-container {
+  background-color: #F2EFEA;
+}
+
 .navbar {
-
-  margin-left: -$body-nav-margin;
-  margin-right: -$body-nav-margin;
-
-  padding-left:75px;
-  padding-right:75px;
+  // margin-left: -75px;
+  // margin-right: -75px;
+  //
+  // padding-left:75px;
+  // padding-right:75px;
 
   background-color: #F2EFEA;
   font-weight: 200;
   font-size: 13px;
   color: #988575;
+
   p {
-    // padding-bottom: -50px;
     margin-bottom: -1px;
 
     img {
@@ -133,15 +103,16 @@ body {
   letter-spacing: 1px;
   font-weight: 200;
   font-size: 12px;
-  padding-left: -5px;
-  margin-left: -5px;
 }
 
-div {
+.alternatives {
+  p {
+    font-weight: 400;
+  }
+}
+
+.panel {
   background-color: $card-bg-color;
-}
-
-.special {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 60px;
@@ -150,7 +121,6 @@ div {
 
 .greeting-cards {
   margin-top: 15px;
-  // margin-bottom: 15px;
   padding-bottom: $bottom-border-padding;
 }
 
@@ -161,6 +131,7 @@ div {
 .three-links {
   padding-top: 15px;
 }
+
 .buy-button {
   background-color: $buy-btn-color;
   margin: 0 auto;
@@ -186,7 +157,7 @@ div {
   margin: 0 auto;
   color: $hyperlink-blue;
   border: none;
-  box-shadow: 0 2px 0 #CFD0D1!important;
+  box-shadow: 0 2px 0 #CFD0D1 !important;
   padding-bottom: 12px;
   padding-top: 12px;
   font-size: 16px;
@@ -201,4 +172,8 @@ div {
 .example-button:hover{
   background-color: $hyperlink-hover-gray;
   color: $hyperlink-blue;
+}
+
+.border-top-custom {
+  border-top: 6px solid $paragpraph-title-juniper !important;
 }
