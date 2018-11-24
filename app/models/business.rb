@@ -19,6 +19,21 @@ class Business < ApplicationRecord
 
   DEFAULT_GIFT_CARD_STATUS = true
 
+  def price_description
+    case self.price
+    when 1
+      "under $10"
+    when 2
+      "$11-30"
+    when 3
+      "$31-60"
+    when 4
+      "over $61"
+    else
+      "other $"
+    end
+  end
+
   private
 
   def set_slug

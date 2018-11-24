@@ -71,11 +71,6 @@ body {
 }
 
 .navbar {
-  // margin-left: -75px;
-  // margin-right: -75px;
-  //
-  // padding-left:75px;
-  // padding-right:75px;
 
   background-color: #F2EFEA;
   font-weight: 200;
@@ -178,7 +173,10 @@ body {
   border-top: 6px solid $paragpraph-title-juniper !important;
 }
 
+#price-display {
+  color: $hyperlink-blue;
+}
 
-.container-special {
-  
+#price-total {
+  color: $gray-400;
 }

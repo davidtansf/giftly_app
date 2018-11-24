@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :business
   validates :text, presence: true
-  
+
   before_create do
     strip_review_url if review_source_url.present?
   end

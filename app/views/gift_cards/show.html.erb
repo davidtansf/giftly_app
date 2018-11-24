@@ -36,7 +36,8 @@
     <div class="col">
       <strong>Price range</strong>
       <div>
-        <%= @business.price %>
+        <span id="price-display"><%= "$" * @business.price %></span><span id="price-total"><%= "$" * (4 - @business.price.to_i) %></span>
+        <%= @business.price_description %>
       </div>
     </div>
     <div class="col">
