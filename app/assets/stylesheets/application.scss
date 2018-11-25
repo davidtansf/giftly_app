@@ -7,14 +7,14 @@ body {
   margin-bottom: 10px;
   color: $paragraph-text-grey;
   font-weight: 200;
-  font-size: 16px;
+  // font-size: 16px;
 
   @include media-breakpoint-up(sm) {
       font-size: 1rem;
   }
 
   @include media-breakpoint-up(md) {
-      font-size: 1.4rem; // mobile
+      font-size: 1.5rem; // mobile
   }
 
   @include media-breakpoint-up(lg) {
@@ -84,6 +84,18 @@ body {
   font-size: 13px;
   color: #988575;
 
+  @include media-breakpoint-up(sm) {
+      font-size: 1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+      font-size: 1.4rem; // mobile
+  }
+
+  @include media-breakpoint-up(lg) {
+      font-size: .9rem; // desktops
+  }
+
   p {
     margin-bottom: -1px;
 
@@ -96,6 +108,18 @@ body {
     color: #988575;
     font-weight: 200;
     font-size: 13px;
+
+    @include media-breakpoint-up(sm) {
+        font-size: 1rem;
+    }
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.4rem; // mobile
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: .8rem; // desktops
+    }
   }
 }
 
@@ -104,7 +128,18 @@ body {
   color: #A5ACAC;
   letter-spacing: 1px;
   font-weight: 200;
-  font-size: 12px;
+
+  @include media-breakpoint-up(sm) {
+      font-size: 1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+      font-size: 1.3rem; // mobile
+  }
+
+  @include media-breakpoint-up(lg) {
+      font-size: .8rem; // desktops
+  }
 }
 
 .alternatives {
