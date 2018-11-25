@@ -5,8 +5,8 @@
     <img src="<%= @business.image_url %>" class="img-fluid rounded float-left" alt="Responsive image">
   </div>
   <div class="col-sm-9">
-    <h5 class="mb-2"><%= @business.name %></h5>
-    <div class="mb-2">
+    <h5 class="mb-1"><%= @business.name %></h5>
+    <div class="mb-1">
       <img src="<%= asset_path('yelp_stars/' + @business.rating.to_s.gsub(".","_") + '.png')%>" class="img-fluid" alt="Responsive image">
       based on <%= @business.total_reviews %> reviews on<a target="_blank" href="<%= @business.data_source_url %>"><img src="<%= asset_path('yelp_fullcolor_xs.png')%>" class="img-fluid" alt="Responsive image"></a>
     </div>
