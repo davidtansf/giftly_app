@@ -1,10 +1,12 @@
 class GiftCardsController < ApplicationController
   before_action :find_business, only: [:show]
 
+  def index
+  end
+
   def search
     results = YelpBusinessAPI.new.search(location: params[:location], keyword: params[:keyword])
 
-    # @result.save
     if results[:match]
       redirect_to action: 'show', slug: results[:slug]
     else

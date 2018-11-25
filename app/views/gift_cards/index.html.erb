@@ -1,2 +1,17 @@
-<h4>GiftCards#index</h4>
-<p>Find me in app/views/gift_cards/index.html.erb</p>
+<div class="panel text-center">
+  <%= form_with local: true do |form| %>
+    <p>
+      <%= form.label :location %><br>
+      <%= form.text_field :location %>
+    </p>
+
+    <p>
+      <%= form.label :keyword %><br>
+      <%= form.text_field :keyword %>
+    </p>
+
+    <p>
+      <%= form.submit "Search gift cards ››", :class => "btn px-10 btn-lg btn-primary custom-button", :id => "buy-button"%>
+    </p>
+  <% end %>
+</div>
