@@ -30,6 +30,9 @@ class YelpBusinessAPI
     else
       invalid_search_response(:validations)
     end
+
+  rescue StandardError
+    invalid_search_response(:other)
   end
 
   def updater
@@ -55,7 +58,7 @@ class YelpBusinessAPI
     when :validations
       "Could not create database entry. Required fields missing"
     else
-      "Some other error"
+      "Some other error. Please try again later"
     end
     {
       match: false,
