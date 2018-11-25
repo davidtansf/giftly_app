@@ -9,6 +9,18 @@ body {
   font-weight: 200;
   font-size: 16px;
 
+  @include media-breakpoint-up(sm) {
+      font-size: 1rem;
+  }
+
+  @include media-breakpoint-up(md) {
+      font-size: 1.4rem; // mobile
+  }
+
+  @include media-breakpoint-up(lg) {
+      font-size: 1rem; // desktops
+  }
+
   a {
     color: $hyperlink-blue;
 
@@ -32,6 +44,12 @@ body {
     font-weight: 200;
     letter-spacing: 2px;
     text-align: center;
+  }
+
+  h3 {
+    color: $paragpraph-title-juniper;
+    font-weight: 200;
+    letter-spacing: 1px;
   }
 
   h4 {
